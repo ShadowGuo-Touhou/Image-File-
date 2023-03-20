@@ -12,22 +12,22 @@ def readByte(path:str, len:int = 0):
             len -= 1
         return byteArray
 
-x = readByte(r"C:\Users\203379015\OneDrive - Fulton County Schools\Desktop\CRC32\1x1.png")
-#y = readByte(r"C:\Users\203379015\OneDrive - Fulton County Schools\Desktop\CRC32\temp.png")
-print(x)
+x = readByte(r"1x1.png")
 
+def suTf(content: str):
+    byteContent = bytes(f"suTf\n{content}\n", "utf-8")
+    length = len(byteContent)-4
+    length = bytes([(length>>8*x)&0xff for x in range(3,-1,-1)])
+    crc32 = CRC32(byteContent)
+    crc32 = bytes([(crc32>>8*x)&0xff for x in range(3,-1,-1)])
+    return length+byteContent+crc32
 
-type = b"suTf"
-content = b"Hello!"
-length = b"\x00\x00\x00\x06"
-crc = b"\x51\x22\x39\x61"
+content = suTf("你好陌生人，我顶你个肺!Bye bye!")
+
 
 with open("temp.png", "ab+") as file:
-    for b in x[:48]:
+    for b in x[:33]:
         file.write(b)
-    file.write(length)
-    file.write(type)
     file.write(content)
-    file.write(crc)
-    for b in x[48:]:
+    for b in x[33:]:
         file.write(b)

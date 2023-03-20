@@ -6,3 +6,6 @@ Another reason for self-defined chunk's robustness. Indeed, messages can be simp
 
 First commit:
 I managed to insert self-defined chunks in image, image viewers can decode it just like other images. There is one problem: I hand written it. I must automize the process unless I want to write chunk layout myself every time.
+
+Second commit: 
+I wrote an algorithm to automatical format input content into a self-defined chunk. The core algorithm is done.
