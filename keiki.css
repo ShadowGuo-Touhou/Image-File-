@@ -1,0 +1,22 @@
+.imgDisplay {
+    text-align: center;
+    align-content: center;
+    border-style: groove;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+}  
+
+.imageChooser {
+    margin: 10px 0; 
+    padding: 10px 5px; 
+    background: transparent; 
+    border: none; 
+    border-radius: 5px; 
+    transition: all 0.2s ease; 
+} 
+.imageChooser:hover {
+    background: rgba(0,0,0,0.1); 
+}
+.imageChooser:focus {
+    background: rgba(0,0,0,0.2); 
+}

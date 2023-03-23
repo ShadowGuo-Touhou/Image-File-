@@ -9,3 +9,6 @@ I managed to insert self-defined chunks in image, image viewers can decode it ju
 
 Second commit: 
 I wrote an algorithm to automatical format input content into a self-defined chunk. The core algorithm is done.
+
+Thire commit:
+Working a JavaScript + html application. Although I could creat GUI with pyqt5 or tkinter, I want to explore JavaScript a little.

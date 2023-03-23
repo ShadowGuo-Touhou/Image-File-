@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image "File"</title>
+        <link rel="stylesheet" href="keiki.css">
+        <script src="actions.js"></script>
+        <header class="head">
+            <h2 style="text-align: center; margin-left: 40%; margin-right: 40%;">Image File</h2>
+        </header>
+    </head>
+    <body>
+        <main>
+            <div class="imgDisplay" > 
+                    <input value="Choose a PNG image" type="button" class="imageChooser" onclick="document.getElementById('file').click();">
+                    <input type="file" accept="image/*" style="display: none;" id="file" onchange="handleImage(this)">
+                    <img  id="imgContainer" width="100%" height="auto" /> 
+            </div>
+        </main>
+    </body>
+</html>
