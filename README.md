@@ -10,5 +10,9 @@ I managed to insert self-defined chunks in image, image viewers can decode it ju
 Second commit: 
 I wrote an algorithm to automatical format input content into a self-defined chunk. The core algorithm is done.
 
-Thire commit:
+Third commit:
 Working a JavaScript + html application. Although I could creat GUI with pyqt5 or tkinter, I want to explore JavaScript a little.
+
+Fourth commit:
+I created a Javascript and HTML based application for the process. The frame is completed, you can pass in an image and download the image with message embeded. Next I want to add choice for encryption methods: utf-8 and gbk. 
+Later I would like to beautify my page a littel.

@@ -12,17 +12,17 @@ def readByte(path:str, len:int = 0):
             len -= 1
         return byteArray
 
-x = readByte(r"1x1.png")
+x = readByte(input("Enter the path of Image: "))
 
 def suTf(content: str):
-    byteContent = bytes(f"suTf\n{content}\n", "utf-8")
+    byteContent = bytes(f"suTf\n\n{content}\n\n", "utf-8")
     length = len(byteContent)-4
     length = bytes([(length>>8*x)&0xff for x in range(3,-1,-1)])
     crc32 = CRC32(byteContent)
     crc32 = bytes([(crc32>>8*x)&0xff for x in range(3,-1,-1)])
     return length+byteContent+crc32
 
-content = suTf("你好陌生人，我顶你个肺!Bye bye!")
+content = suTf(input("Enter the content you want to write: "))
 
 
 with open("temp.png", "ab+") as file:

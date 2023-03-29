@@ -3,7 +3,6 @@
     <head>
         <title>Image "File"</title>
         <link rel="stylesheet" href="keiki.css">
-        <script src="actions.js"></script>
         <header class="head">
             <h2 style="text-align: center; margin-left: 40%; margin-right: 40%;">Image File</h2>
         </header>
@@ -11,10 +10,19 @@
     <body>
         <main>
             <div class="imgDisplay" > 
-                    <input value="Choose a PNG image" type="button" class="imageChooser" onclick="document.getElementById('file').click();">
-                    <input type="file" accept="image/*" style="display: none;" id="file" onchange="handleImage(this)">
-                    <img  id="imgContainer" width="100%" height="auto" /> 
+                    <input value="Choose a PNG image" type="button" class="inputButton" onclick="document.getElementById('file').click();">
+                    <input type="file" accept="image/png" style="display: none;" id="file" onchange="handleImage(this)">
+                    <br>
+                    <img  id="imgContainer" height="auto" /> 
+                    <a id="download" style="display: none;"><p>Download</p></a>
             </div>
+            <form id="inputForm" style="text-align: center; display: none;" action="">
+                <p><label for="textInput">Enter your message:</label></p>
+                <textarea id="textInput" rows="10" cols=100></textarea>
+                <br>
+                <input type="submit" value="Write" class="inputButton"/>
+            </form>
         </main>
     </body>
+    <script src="actions.js"></script>
 </html>
