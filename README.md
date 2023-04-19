@@ -16,3 +16,7 @@ Working a JavaScript + html application. Although I could creat GUI with pyqt5 o
 Fourth commit:
 I created a Javascript and HTML based application for the process. The frame is completed, you can pass in an image and download the image with message embeded. Next I want to add choice for encryption methods: utf-8 and gbk. 
 Later I would like to beautify my page a littel.
+
+Fifth commit:
+Forget about beautify, I can't handle that QWQ.
+The original library of JavaScript doesn't support gbk encryption, and I don't want to bother with useing third party libraries. So I reworte the python program to make it hadle gbk.

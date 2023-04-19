@@ -3,14 +3,30 @@ function handleImage(e) {
     image = e.files[0];
     if (image.type === "image/png"){
         const imgContainer = document.getElementById("imgContainer"); 
-        imgContainer.src = URL.createObjectURL(e.files[0]); 
+        imgContainer.src = URL.createObjectURL(e.files[0]);
         image = e.files[0]
+        downloadClear();
         document.getElementById("inputForm").style.display = "block";
+        
     } else {
         document.getElementById("inputForm").style.display = "none";
         imgContainer.src = "";
     }
-    
+}
+
+function downloadSet( blob ){
+    let download = document.getElementById("download");
+    download.href = blob;
+    download.download = image.name.slice(0, -4) + "_.png";
+    download.target= "_blank";
+    download.style.pointerEvents = 'auto';
+    download.title= "Download image";
+}
+function downloadClear(){
+    let download = document.getElementById("download");
+    download.title = image.name.slice(0, -4);
+    download.style.pointerEvents = 'none';
+    download.style.display = 'block';
 }
 
 function CRC32(content){
@@ -21,7 +37,7 @@ function CRC32(content){
 }
 
 function instillMessage(content){
-    let chunk = `suTf\n\n${content}\n\n`;
+    let chunk = `suTf\nEncoded with utf-8: \n${content}\n`;
     let encoder = new TextEncoder();
     let intText = encoder.encode(chunk);
     let CRC = CRC32(intText);
@@ -46,17 +62,11 @@ function instillMessage(content){
         let img = document.getElementById("imgContainer")
         img.src = imageUrl;
 
-        let download = document.getElementById("download");
-        download.href = urlCreator.createObjectURL( blob );
-        download.download = "image.png";
-        download.target= "_blank";
-        download.style.display = 'block';
-        
-
+        downloadSet(urlCreator.createObjectURL( blob ));
         
     }
     reader.onerror = (e) => {
-        console.log(`Encountered error while reading ${image.name}`)
+        alert(`Encountered error while reading ${image.name}`)
     }
     reader.readAsArrayBuffer(image);
  }
@@ -64,7 +74,10 @@ function instillMessage(content){
 window.addEventListener("load", ()=>{
     document.getElementById("inputForm").addEventListener("submit", (event) => {
         event.preventDefault();
-        instillMessage(document.getElementById("textInput").value);
+        let text = document.getElementById("textInput")
+        instillMessage(text.value);
+        text.value = ""
+        document.getElementById("inputForm").style.display = "none";
     });
 });
 

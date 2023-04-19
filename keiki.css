@@ -1,9 +1,6 @@
 .imgDisplay {
     text-align: center;
     align-content: center;
-    border-style: groove;
-    /* margin-left: 30%;
-    margin-right: 30%; */
 }  
 
 .inputButton {
@@ -19,4 +16,12 @@
 }
 .inputButton:focus {
     background: rgba(0,0,0,0.2); 
+}
+
+textarea {
+    border-style:ridge;
+    border-radius: 10px;
+}
+textarea:hover{
+    border-width: 2px;
 }

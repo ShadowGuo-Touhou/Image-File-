@@ -7,4 +7,3 @@ def CRC32(byteInputStream: list):
     for byte in byteInputStream:
         CRCRegister = CRCTable[(CRCRegister^byte)&0xFF]^CRCRegister>>8
     return(CRCRegister^0xFFFFFFFF)
-
